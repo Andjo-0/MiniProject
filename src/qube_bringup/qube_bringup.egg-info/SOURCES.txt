@@ -1,0 +1,14 @@
+package.xml
+setup.cfg
+setup.py
+qube_bringup/__init__.py
+qube_bringup.egg-info/PKG-INFO
+qube_bringup.egg-info/SOURCES.txt
+qube_bringup.egg-info/dependency_links.txt
+qube_bringup.egg-info/requires.txt
+qube_bringup.egg-info/top_level.txt
+qube_bringup.egg-info/zip-safe
+resource/qube_bringup
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
