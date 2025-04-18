@@ -1,10 +1,17 @@
 <?xml version="1.0"?>
 <robot name="qube" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+#Includes the Qube macro from the qube_description package
+
 	<xacro:include filename="$(find qube_description)/urdf/qube.macro.xacro" />
 
+#Create a link to make a joint between the world and the base of the qube
 	<link name="world"/>
+
+#Initializes the qube
 	<xacro:qube prefix="qube_"/>
 
+#Creayes the joint between the base of the qube and the world
 	<joint name="base_joint" type="fixed">
       <parent link="world"/>
       <child link="base_link"/>

@@ -1,22 +1,28 @@
 <?xml version="1.0"?>
 <robot name="qube" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:arg name="baud_rate" default="115200"/>
-    <xacro:arg name="device" default="/dev/ttyACM0"/>
-    <xacro:arg name="simulation" default="false"/>
-
+#Includes the ros2 controller xacro from the qube_driver package
     <xacro:include filename="$(find qube_driver)/ros2_control/qube_driver.ros2_control.xacro"/>
+
+#Includes the description macro of the qube from the qube_description package
     <xacro:include filename="$(find qube_description)/urdf/qube.macro.xacro"/>
 
+#Create a generic link for the world
     <link name="world"/>
 
+#Initialises the qube macro with an empty prefix
     <xacro:qube prefix=""/>
 
+#Creates a joint between the base of the qube and the world
     <joint name="base_joint" type="fixed">
         <parent link="world"/>
         <child link="base_link"/>
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
+
+
+#Initialises the qube drive controller from the qube driver package with an empty prefix and gives it the baud_rate, device name and simulation parameters
+#defined in the launch file.
 
     <xacro:qube_driver_ros2_control
         name="qube_driver"
