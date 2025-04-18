@@ -10,6 +10,6 @@ packages in this workspaces and run the following terminal command. This should 
 
 
 ## PID controller
-The PID controller node is found in the qube_controller package and in order to run it you have to use the following command
+The PID controller node is found in the qube_controller package and in order to run it you have to use the following command in a different terminal (The workspaces have to be built and sourced beforehand)
 
 <pre> ros2 run qube_controller pid_controller --ros-args  --param reference:=30.0  --param p:=0.9  --param i:=0.5  --param d:=0.0 </pre>
