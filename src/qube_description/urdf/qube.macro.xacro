@@ -11,6 +11,7 @@
   <xacro:macro name="qube" params="prefix">
 
     <!-- Links with prefixed names -->
+    #Stator link is the black box itself
     <link name="${prefix}stator_link">
       <visual>
         <geometry>
@@ -22,6 +23,7 @@
       </visual>
     </link>
 
+    #Rotor link is the spinning sylinder on top of the qube
     <link name="${prefix}rotor_link">
       <visual>
         <geometry>
@@ -33,6 +35,7 @@
       </visual>
     </link>
 
+    #The angle link is the white indicator line that points in a direction.
     <link name="${prefix}angle_link">
       <visual>
         <geometry>
@@ -45,12 +48,14 @@
     </link>
 
     <!-- Joints with prefixed names -->
+    #Creates a joint between the black box and the base of the world.
     <joint name="${prefix}stator_joint" type="fixed">
       <parent link="base_link"/>
       <child link="${prefix}stator_link"/>
       <origin xyz="0 0 0.050" rpy="0 0 0"/>
     </joint>
 
+#creates a joint between the black box(stator) and the red sylinder (rotor) which is set to continous to allow for movement of the sylinder simulating rpm.
 <joint name="${prefix}motor_joint" type="continuous">
   <parent link="${prefix}stator_link"/>
   <child link="${prefix}rotor_link"/>
@@ -58,6 +63,7 @@
   <axis xyz="0 0 1"/>
 </joint>
 
+#Creates a controll interface so that the controller in the qube_driver can control the motor joint.
     <!-- ros2_control transmission configuration -->
     <ros2_control name="motor_joint" type="transmission_interface/SimpleTransmission">
       <joint name="${prefix}motor_joint">
@@ -67,6 +73,7 @@
       </joint>
     </ros2_control>
 
+#Creates a joint between the white line and the red sylinder, the joint is fixed so that the white line will move with the red sylinder.
     <joint name="${prefix}indicator" type="fixed">
       <parent link="${prefix}rotor_link"/>
       <child link="${prefix}angle_link"/>

@@ -1,3 +1,6 @@
+#Modified launch file from https://github.com/ros/urdf_launch/blob/main/launch/display.launch.py
+#This has been modified by ChatGPT to not rely on the urdf_launch file from the ros2 urdf_tutorial
+
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution, Command
@@ -65,7 +68,7 @@ def generate_launch_description():
             output='screen'
         ),
 
-        # RViz
+        # Initialises the rviz2 node
         Node(
             package='rviz2',
             executable='rviz2',

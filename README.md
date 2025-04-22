@@ -5,11 +5,16 @@ packages in this workspaces and run the following terminal command. This should 
 #### NB: If no quanzer qube is connected to the computer then the simulation has to be set to true
 
 
-<pre> ros2 launch qube_bringup bringup.launch.py 
-\ baud_rate:=115200 \ device:=/dev/ttyACM0 \ simulation:=true </pre>
-
+```
+ros2 launch qube_bringup bringup.launch.py 
+\ baud_rate:=115200 \ device:=/dev/ttyACM0 \ simulation:=true 
+```
 
 ## PID controller
 The PID controller node is found in the qube_controller package and in order to run it you have to use the following command in a different terminal (The workspaces have to be built and sourced beforehand)
 
-<pre> ros2 run qube_controller pid_controller --ros-args  --param reference:=30.0  --param p:=0.9  --param i:=0.5  --param d:=0.0 </pre>
+
+```
+ros2 run qube_controller pid_controller \
+ --ros-args  --param reference:=30.0  --param p:=0.9  --param i:=0.5  --param d:=0.0 
+```
