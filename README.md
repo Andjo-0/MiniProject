@@ -2,6 +2,8 @@
 ## Qube Controller
 Is the Node responsible for implementation of the PID-controller used to controll the velocity of the motor. The Controller tries to make it's output to be the reference value decided by the end user, taking into account the PID values and the current velocity of the motor. The response of the output signal is being mainly changed by change of PID values. In the implementation the maximal and minimal value of the Integral part has been limited to not be greater then 50, and not smaller then -50 to make sure that the sum of error will not grow uncontrolled making the system unstable. The same has been done with commanded_velocity which is the velocity of the motor to add an aditional layer of qube protection. The controllers also allow the dynamical change of Kp, Ki and Kd parameters as well as change of the reference value.
 
+## Qube description
+This node holds the urdf/xacro files containing the model of the qube used in the presentation.
 
 
 # How to use
