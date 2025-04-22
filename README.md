@@ -5,6 +5,8 @@ Is the Node responsible for implementation of the PID-controller used to control
 ## Qube description
 This node holds the urdf/xacro files containing the model of the qube used in the presentation.
 
+## Qube Bringup
+Launches all of the nodes togheter.
 
 # How to use
 ## Launch visualisation
